@@ -48,5 +48,9 @@ add_subdirectory(${CEF_LIBCEF_DLL_WRAPPER_PATH} libcef_dll_wrapper)
 # Comes from the <target>/CMakeLists.txt file in the current directory.
 add_subdirectory(example/cefsimple)
 
+# 编译Qt相关的需要设置本地Qt路径到环境变量
+# 例如mac下 export PATH=$PATH:/Users/bytedance/Qt/5.9.9/clang_64/lib/cmake/Qt5
+add_subdirectory(example/QtOSRCef)
+
 # Display configuration settings.
 PRINT_CEF_CONFIG()
