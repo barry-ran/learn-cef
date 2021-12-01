@@ -37,6 +37,7 @@ cef
 - [cef 开发包下载地址](https://cef-builds.spotifycdn.com/index.html)
 
 - [初学必读：如何使用cef创建简单应用（cefsimple详细教程）](https://bitbucket.org/chromiumembedded/cef/wiki/Tutorial.md)
+- [初学必读：cef一般用法（cefclient详细教程）](https://bitbucket.org/chromiumembedded/cef/wiki/GeneralUsage.md)
 - [一起学libcef](https://blog.csdn.net/wangshubo1989/category_6004479.html)
 - [Qt浏览器开发：关于CEF开发知识点以及QCef开发原理与使用](https://blog.csdn.net/qq_36651243/article/details/115350668)
 
