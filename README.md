@@ -38,6 +38,7 @@ cef
 
 - [初学必读：如何使用cef创建简单应用（cefsimple详细教程）](https://bitbucket.org/chromiumembedded/cef/wiki/Tutorial.md)
 - [初学必读：cef一般用法（cefclient详细教程）](https://bitbucket.org/chromiumembedded/cef/wiki/GeneralUsage.md)
+- [初学必读：官方js集成教程](https://bitbucket.org/chromiumembedded/cef/wiki/JavaScriptIntegration.md)
 - [一起学libcef](https://blog.csdn.net/wangshubo1989/category_6004479.html)
 - [Qt浏览器开发：关于CEF开发知识点以及QCef开发原理与使用](https://blog.csdn.net/qq_36651243/article/details/115350668)
 
@@ -46,3 +47,4 @@ cef
 - [QCefWidget：cef嵌入QWidget（支持窗口模式和离屏渲染模式）](https://github.com/winsoft666/QCefWidget)
 - [CefViewCore：方便嵌入cef到其他UI框架的cef封装](https://github.com/CefView/CefViewCore)
 - [QCefBrowser：基于CEF封装的Qt浏览器](https://github.com/KikyoShaw/QCefBrowser)
+- [CEF3SimpleSample: 参考js集成相关代码](https://github.com/acristoffers/CEF3SimpleSample)
