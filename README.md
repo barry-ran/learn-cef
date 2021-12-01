@@ -40,7 +40,7 @@ cef
 - [一起学libcef](https://blog.csdn.net/wangshubo1989/category_6004479.html)
 - [Qt浏览器开发：关于CEF开发知识点以及QCef开发原理与使用](https://blog.csdn.net/qq_36651243/article/details/115350668)
 
-- [QtCefDemoCmake：cef嵌入Qt的简单Demo（基于窗口模式）](https://github.com/w4ngzhen/QtCefDemoCmake)
+- [QtCefDemoCmake：cef嵌入Qt的简单Demo（基于窗口模式）(由于没有处理cef消息循环，所以显示不出网页，应该使用CefDoMessageLoopWork异步处理)](https://github.com/w4ngzhen/QtCefDemoCmake)
 - [QtCef：cef嵌入Qt的完整点的Demo（基于窗口模式）](https://github.com/3dproger/QtCef)
 - [QCefWidget：cef嵌入QWidget（支持窗口模式和离屏渲染模式）](https://github.com/winsoft666/QCefWidget)
 - [CefViewCore：方便嵌入cef到其他UI框架的cef封装](https://github.com/CefView/CefViewCore)
