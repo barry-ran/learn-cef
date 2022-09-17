@@ -15,12 +15,11 @@ Widget::Widget(QWidget *parent)
     CefWindowInfo cef_wnd_info;
     cef_wnd_info.SetAsChild((CefWindowHandle)this->winId(), win_rect);
 
-    simple_handler_ = CefRefPtr<SimpleHandler>(new SimpleHandler());
-    QString str_url = "http://www.baidu.com";
+    simple_handler_ = CefRefPtr<SimpleHandler>(new SimpleHandler());    
     CefBrowserSettings cef_browser_settings;
     CefBrowserHost::CreateBrowser(cef_wnd_info,
         simple_handler_,
-        str_url.toStdString(),
+        "http://www.baidu.com",
         cef_browser_settings,
         nullptr,
         CefRequestContext::GetGlobalContext());

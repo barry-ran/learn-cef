@@ -1,4 +1,4 @@
-#include <QApplication>
+﻿#include <QApplication>
 #include <QTimer>
 #include <QDebug>
 
@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     // CEF applications have multiple sub-processes (render, plugin, GPU, etc)
     // that share the same executable. This function checks the command-line and,
     // if this is a sub-process, executes the appropriate logic.
-    int exit_code = CefExecuteProcess(main_args, nullptr, sandbox_info);
+    int exit_code = CefExecuteProcess(main_args, nullptr, nullptr);
     if (exit_code >= 0) {
         // The sub-process has completed so return here.
         return exit_code;
@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
         }
         else
         {
-            app = new CefApp();
+            app = new SimpleApp();
         }
     }
 #endif

@@ -50,7 +50,7 @@ add_subdirectory(example/cefsimple)
 
 # 编译Qt相关的需要设置本地Qt路径到环境变量
 # 例如mac下 export PATH=$PATH:/Users/bytedance/Qt/5.9.9/clang_64/lib/cmake/Qt5
-add_subdirectory(example/QtOSRCef)
+add_subdirectory(example/QtCef)
 add_subdirectory(example/cppjs)
 
 # Display configuration settings.
