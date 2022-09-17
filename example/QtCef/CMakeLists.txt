@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(QtOSRCef VERSION 0.1 LANGUAGES CXX)
+project(QtCef VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -19,7 +19,7 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 #
 
 # sources.
-set(QTOSRCEF_SRCS
+set(QTCEF_SRCS
     main.cpp
     widget.cpp
     widget.h
@@ -29,41 +29,41 @@ set(QTOSRCEF_SRCS
     simple_handler.h
     simple_handler.cpp
   )
-set(QTOSRCEF_SRCS_MAC
-  #QtOSRCef_mac.mm
+set(QTCEF_SRCS_MAC
+  #QtCef_mac.mm
   )
-APPEND_PLATFORM_SOURCES(QTOSRCEF_SRCS)
-source_group(QtOSRCef FILES ${QTOSRCEF_SRCS})
+APPEND_PLATFORM_SOURCES(QTCEF_SRCS)
+source_group(QtCef FILES ${QTCEF_SRCS})
 
-set(QTOSRCEF_SRCS
-  ${QTOSRCEF_SRCS}
+set(QTCEF_SRCS
+  ${QTCEF_SRCS}
   )
 
-# QtOSRCef helper sources.
-set(QTOSRCEF_HELPER_SRCS_MAC
+# QtCef helper sources.
+set(QTCEF_HELPER_SRCS_MAC
   process_helper_mac.cc
   )
-APPEND_PLATFORM_SOURCES(QTOSRCEF_HELPER_SRCS)
-source_group(QtOSRCef FILES ${QTOSRCEF_HELPER_SRCS})
+APPEND_PLATFORM_SOURCES(QTCEF_HELPER_SRCS)
+source_group(QtCef FILES ${QTCEF_HELPER_SRCS})
 
-# QtOSRCef resources.
-set(QTOSRCEF_RESOURCES_MAC_SRCS_MAC
+# QtCef resources.
+set(QTCEF_RESOURCES_MAC_SRCS_MAC
   mac/Info.plist
-  mac/QtOSRCef.icns
+  mac/QtCef.icns
   )
-APPEND_PLATFORM_SOURCES(QTOSRCEF_RESOURCES_MAC_SRCS)
-source_group(QtOSRCef\\\\mac FILES ${QTOSRCEF_RESOURCES_MAC_SRCS})
+APPEND_PLATFORM_SOURCES(QTCEF_RESOURCES_MAC_SRCS)
+source_group(QtCef\\\\mac FILES ${QTCEF_RESOURCES_MAC_SRCS})
 
-set(QTOSRCEF_RESOURCES_MAC_ENGLISH_LPROJ_SRCS_MAC
+set(QTCEF_RESOURCES_MAC_ENGLISH_LPROJ_SRCS_MAC
   mac/English.lproj/InfoPlist.strings
   mac/English.lproj/MainMenu.xib
   )
-APPEND_PLATFORM_SOURCES(QTOSRCEF_RESOURCES_MAC_ENGLISH_LPROJ_SRCS)
-source_group(QtOSRCef\\\\mac\\\\English.lproj FILES ${QTOSRCEF_RESOURCES_MAC_ENGLISH_LPROJ_SRCS})
+APPEND_PLATFORM_SOURCES(QTCEF_RESOURCES_MAC_ENGLISH_LPROJ_SRCS)
+source_group(QtCef\\\\mac\\\\English.lproj FILES ${QTCEF_RESOURCES_MAC_ENGLISH_LPROJ_SRCS})
 
-set(QTOSRCEF_RESOURCES_SRCS
-  ${QTOSRCEF_RESOURCES_MAC_SRCS}
-  ${QTOSRCEF_RESOURCES_MAC_ENGLISH_LPROJ_SRCS}
+set(QTCEF_RESOURCES_SRCS
+  ${QTCEF_RESOURCES_MAC_SRCS}
+  ${QTCEF_RESOURCES_MAC_ENGLISH_LPROJ_SRCS}
   )
 
 
@@ -72,10 +72,10 @@ set(QTOSRCEF_RESOURCES_SRCS
 #
 
 # Target executable names.
-set(CEF_TARGET "QtOSRCef")
+set(CEF_TARGET "QtCef")
 if(OS_MAC)
-  set(CEF_HELPER_TARGET "QtOSRCef_Helper")
-  set(CEF_HELPER_OUTPUT_NAME "QtOSRCef Helper")
+  set(CEF_HELPER_TARGET "QtCef_Helper")
+  set(CEF_HELPER_OUTPUT_NAME "QtCef Helper")
 else()
   # Logical target used to link the libcef library.
   ADD_LOGICAL_TARGET("libcef_lib" "${CEF_LIB_DEBUG}" "${CEF_LIB_RELEASE}")
@@ -91,7 +91,7 @@ SET_CEF_TARGET_OUT_DIR()
 
 if(OS_LINUX)
   # Executable target.
-  add_executable(${CEF_TARGET} ${QTOSRCEF_SRCS})
+  add_executable(${CEF_TARGET} ${QTCEF_SRCS})
   SET_EXECUTABLE_TARGET_PROPERTIES(${CEF_TARGET})
   add_dependencies(${CEF_TARGET} libcef_dll_wrapper)
   target_link_libraries(${CEF_TARGET} libcef_lib libcef_dll_wrapper ${CEF_STANDARD_LIBS})
@@ -141,7 +141,7 @@ if(OS_MAC)
   endif()
 
   # Main app bundle target.
-  add_executable(${CEF_TARGET} MACOSX_BUNDLE ${QTOSRCEF_RESOURCES_SRCS} ${QTOSRCEF_SRCS})
+  add_executable(${CEF_TARGET} MACOSX_BUNDLE ${QTCEF_RESOURCES_SRCS} ${QTCEF_SRCS})
   SET_EXECUTABLE_TARGET_PROPERTIES(${CEF_TARGET})
   add_dependencies(${CEF_TARGET} libcef_dll_wrapper)
   target_link_libraries(${CEF_TARGET} PRIVATE libcef_dll_wrapper ${CEF_STANDARD_LIBS})
@@ -183,7 +183,7 @@ if(OS_MAC)
     file(WRITE ${_helper_info_plist} ${_plist_contents})
 
     # Create Helper executable target.
-    add_executable(${_helper_target} MACOSX_BUNDLE ${QTOSRCEF_HELPER_SRCS})
+    add_executable(${_helper_target} MACOSX_BUNDLE ${QTCEF_HELPER_SRCS})
     SET_EXECUTABLE_TARGET_PROPERTIES(${_helper_target})
     add_dependencies(${_helper_target} libcef_dll_wrapper)
     target_link_libraries(${_helper_target} libcef_dll_wrapper ${CEF_STANDARD_LIBS})
@@ -215,7 +215,7 @@ if(OS_MAC)
   # directive but that doesn't properly handle nested resource directories.
   # Remove these prefixes from input file paths.
   set(PREFIXES "mac/")
-  COPY_MAC_RESOURCES("${QTOSRCEF_RESOURCES_SRCS}" "${PREFIXES}" "${CEF_TARGET}" "${CMAKE_CURRENT_SOURCE_DIR}" "${CEF_APP}")
+  COPY_MAC_RESOURCES("${QTCEF_RESOURCES_SRCS}" "${PREFIXES}" "${CEF_TARGET}" "${CMAKE_CURRENT_SOURCE_DIR}" "${CEF_APP}")
 endif()
 
 
@@ -225,7 +225,7 @@ endif()
 
 if(OS_WINDOWS)
   # Executable target.
-  add_executable(${CEF_TARGET} WIN32 ${QTOSRCEF_SRCS})
+  add_executable(${CEF_TARGET} WIN32 ${QTCEF_SRCS})
   add_dependencies(${CEF_TARGET} libcef_dll_wrapper)
   SET_EXECUTABLE_TARGET_PROPERTIES(${CEF_TARGET})
   target_link_libraries(${CEF_TARGET} libcef_lib libcef_dll_wrapper ${CEF_STANDARD_LIBS})
@@ -245,5 +245,5 @@ if(OS_WINDOWS)
 endif()
 
 
-target_link_libraries(QtOSRCef PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(QtCef PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
